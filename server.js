@@ -1,55 +1,16 @@
-let marcador;
-let map;
-let markerPosition = {
-    lat: -6.581043172515283,
-    lng: -38.598065561775655
-};
+const express = require('express');
+const cors = require('cors');
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: markerPosition,
-        zoom: 14,
-    });
-    map.addListener("click", event => {
-        marcador = new google.maps.Marker({
-            map: map,
-            position: event.latLng
-        })
-        markerCoord(marcador.getPosition())
 
-    })
-}
+const app = express();
+app.use(express.json());
+app.use(cors());
+const port = 8080;
 
-function exibe() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: markerPosition,
-        zoom: 14,
-    });
+const db = require('./database/database');
 
-    marcador.forEach(function (valor, indice) {
-        const lala = new google.maps.Marker({
-            map: map,
-            position: valor.position
-        })
-    })
+app.post('/pontos', db.addMarker);
 
-}
-
-const {
-    client
-} = require('./database');
-
-function markerCoord(coordenadas) {
-    const nome = "maria";
-    console.log(coordenadas.lat());
-    client.query(`INSERT INTO marker (nome, coordenadas  ) VALUES ($1, ST_GeomFromText(POINT(${coordenadas.lat()} ${coordenadas.lng()})))`)
-        .then(() => {
-            console.log('sucesso');
-            client.end(console.log('sucesso'));
-        })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('erro');
-            process.exit();
-        })
-}
+app.listen(port, () => {
+    console.log(`App running on port ${port}.`);
+});

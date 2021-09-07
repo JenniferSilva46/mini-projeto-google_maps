@@ -4,23 +4,25 @@
 <head>
     <title>Simple Map</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./src/styles/style.css" />
 
 </head>
 
 <body>
     <form action="" method="post">
         <label for="">Nome</label>
-        <input type="text">
+        <input type="text" id="name">
+        <label for="">email</label>
+        <input type="email" id="email">
         <label for="">Dia</label>
-        <input type="datetime-local" name="" id="">
+        <input type="datetime-local" name="" id="datetime">
+        <label for="">Contato</label>
+        <input type="tel" id="tel">
         <label for="">Descrição:</label>
-        <input type="text" name="" id="">
-        <button>Salva</button>
+        <input type="text" name="" id="description">
+        <button type="button" id="button">Salva</button>
     </form>
-    <div id="listMap">
-        <ul></ul>
-    </div>
+
     <div id="map">
 
     </div>
@@ -28,7 +30,7 @@
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" async>
     </script>
-    <script src="./server.js"></script>
+    <script src="./src/scripts/maps.js"></script>
 
 
 </body>

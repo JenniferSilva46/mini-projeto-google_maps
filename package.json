@@ -11,8 +11,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "2.8.5",
     "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "nodemon": "^2.0.12",
     "pg": "^8.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenniferSilva46/mini-projeto-google_maps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JenniferSilva46/mini-projeto-google_maps/issues"
+  },
+  "homepage": "https://github.com/JenniferSilva46/mini-projeto-google_maps#readme"
 }
