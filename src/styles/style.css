@@ -1,28 +1,157 @@
-  html,
-  body {
-    height: 100%;
-    width: 100vw;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+
+  background: #282A36;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-right: 1rem;
+}
+
+
+li a:hover {
+  color: #ffffff;
+}
+
+nav ul li a {
+  color: #0779ca;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 90%;
+}
+
+section h2 {
+  color: #282A36;
+  /*word-break: break-all;*/
+}
+
+.header {
+  display: flex;
+  justify-content: space-evenly;
+
+  width: 100%;
+  height: 100%;
+
+  color: #282A36;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding-bottom: 1rem;
+}
+
+.buttonGet {
+  background: #f1f0f0;
+  border: 1px solid #0779ca;
+  color: #0779ca;
+}
+
+header {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 30vw;
+  height: 45vh;
+  border: 1px solid #0779ca;
+  margin-bottom: 1rem;
 }
 
-#map {
-    display: flex;
-    justify-content: center;
-    height: 50%;
-    width: 100%;
-  }
-  
-  /* Optional: Makes the sample page fill the window. */
+form label {
+  display: flex;
+  color: #282A36;
+  font-weight: 700;
+}
+
+form input {
+  width: 90%;
+  height: 2rem;
+  border-radius: 5px;
+  border: 1px solid #282A36;
+  outline: none;
+  transition: .2s ease-in-out;
+  box-sizing: border-box;
+  color: #1a237e;
+
+}
+
+input:focus {
+  border: 1px solid #1a237e;
+}
+
+button {
+  width: 50%;
+  height: 3rem;
+  border-radius: 5px;
+  border: 1px solid #282A36;
+
+  color: aliceblue;
+}
+
+button:hover {
+  background: #0779ca;
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+.button {
+  background: #54a9e6;
+
+}
+
+#map,
+#date-map {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */

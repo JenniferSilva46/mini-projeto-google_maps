@@ -37,27 +37,25 @@ const addMarker = (request, response) => {
         }
         response.status(200).send('Inserido');
     });
-    // const {
-    //     client
-    // } = require('./database');
-
-    // function markerCoord(coordenadas) {
-    //     const nome = "maria";
-    //     console.log(coordenadas.lat());
-    //     client.query(`INSERT INTO marker (nome, coordenadas  ) VALUES ($1, ST_GeomFromText(POINT(${coordenadas.lat()} ${coordenadas.lng()})))`)
-    //         .then(() => {
-    //             console.log('sucesso');
-    //             client.end(console.log('sucesso'));
-    //         })
-    //         .catch(err => console.log(err))
-    //         .then(() => {
-    //             console.log('erro');
-    //             process.exit();
-    //         })
-    // }
 };
+
+const getData = (request, response) => {
+
+    client.query('SELECT name, email, date, contact, description, ST_x(marker), ST_y(marker) FROM users',
+        (err, results) => {
+
+            if (err) {
+                response.status(400).send(err);
+
+            } else {
+                response.status(200).json(results.rows);
+            }
+
+        });
+}
 
 
 module.exports = {
-    addMarker
+    addMarker,
+    getData
 }

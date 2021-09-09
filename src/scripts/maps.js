@@ -1,8 +1,8 @@
 let marcador;
 let map;
 let markerPosition = {
-    lat: -6.581043172515283,
-    lng: -38.598065561775655
+    lat: -6.88634,
+    lng: -38.5614
 };
 
 function initMap() {
@@ -18,22 +18,8 @@ function initMap() {
         marcador = marcador.getPosition()
 
     })
+
 }
-
-// function exibe() {
-//     map = new google.maps.Map(document.getElementById("map"), {
-//         center: markerPosition,
-//         zoom: 14,
-//     });
-
-//     marcador.forEach(function (valor, indice) {
-//         const lala = new google.maps.Marker({
-//             map: map,
-//             position: valor.position
-//         })
-//     })
-
-// }
 
 const button = document.querySelector('#button');
 
@@ -48,7 +34,6 @@ button.addEventListener("click", event => {
         lat: marcador.lat(),
         lng: marcador.lng(),
     };
-    console.log(obj);
     salveDB(obj);
 })
 
@@ -66,3 +51,41 @@ const salveDB = (obj) => {
         .catch(error => alert('Falha ao salvar!'));
 
 }
+
+const fetchData = () => {
+    const url = 'http://localhost:8080/pontos/getData'
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            exibeData(data);
+        })
+}
+const buttonGet = document.querySelector("#buttonGet");
+
+function exibeData(obj) {
+    const dataObj = obj;
+    exibe(dataObj);
+}
+
+function exibe(dataObj) {
+
+    map = new google.maps.Map(document.getElementById("map"), {
+        center: markerPosition,
+        zoom: 14,
+    });
+    dataObj.forEach(function (valor, indice) {
+
+        const markerPoint = {
+            lat: dataObj[indice].st_x,
+            lng: dataObj[indice].st_y
+        }
+
+        new google.maps.Marker({
+            map: map,
+            position: markerPoint
+        })
+    })
+}
+
+
+buttonGet.addEventListener("click", fetchData);

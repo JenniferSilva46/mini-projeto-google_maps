@@ -9,27 +9,49 @@
 </head>
 
 <body>
-    <form action="" method="post">
-        <label for="">Nome</label>
-        <input type="text" id="name">
-        <label for="">email</label>
-        <input type="email" id="email">
-        <label for="">Dia</label>
-        <input type="datetime-local" name="" id="datetime">
-        <label for="">Contato</label>
-        <input type="tel" id="tel">
-        <label for="">Descrição:</label>
-        <input type="text" name="" id="description">
-        <button type="button" id="button">Salva</button>
-    </form>
+    <nav class="nav-bar">
+        <ul>
+            <li class="nav-page">
+                <a href="./index.html">Home</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="header">
 
-    <div id="map">
+        <header>
+            <section>
+                <h1>Vamos ou bora? </h1>
+                <h2>Amigo de verdade e aquele que te convida para sair, mesmo sabendo que você não vai.</h2>
+            </section>
+            <main>
+                <h3>Veja aonde o seus amigos estão e vá curtir com eles</h3>
+                <button type="button" id="buttonGet" class="buttonGet">Buscar localização</button>
+            </main>
+            <form action="" method="post">
+                <label for="">Nome:</label>
+                <input type="text" id="name">
+                <label for="">email:</label>
+                <input type="email" id="email">
+                <label for="">Dia:</label>
+                <input type="datetime-local" name="" id="datetime">
+                <label for="">Contato:</label>
+                <input type="tel" id="tel">
+                <label for="">Descrição:</label>
+                <input type="text" maxlength="100" name="" id="description">
+                <button type="button" id="button" class="button">Salva</button>
+            </form>
 
+
+        </header>
+        <div id="map">
+
+        </div>
     </div>
 
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&libraries=&v=weekly" async>
     </script>
+
     <script src="./src/scripts/maps.js"></script>
 
 
